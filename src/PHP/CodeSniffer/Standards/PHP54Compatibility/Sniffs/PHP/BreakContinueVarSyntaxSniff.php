@@ -8,6 +8,8 @@
  * @package   PHP54Compatibility
  * @author    Sebastian Marek <proofek@gmail.com>
  * @copyright 2012 Sebastian Marek
+ * @license   http://www.opensource.org/licenses/bsd-license.php BSD License
+ * @link      https://github.com/proofek/PHP54Compatibility
  */
 
 /**
@@ -19,6 +21,8 @@
  * @package   PHP54Compatibility
  * @author    Sebastian Marek <proofek@gmail.com>
  * @copyright 2012 Sebastian Marek
+ * @license   http://www.opensource.org/licenses/bsd-license.php BSD License
+ * @link      https://github.com/proofek/PHP54Compatibility
  */
 class PHP54Compatibility_Sniffs_PHP_BreakContinueVarSyntaxSniff implements PHP_CodeSniffer_Sniff
 {
@@ -54,7 +58,7 @@ class PHP54Compatibility_Sniffs_PHP_BreakContinueVarSyntaxSniff implements PHP_C
 
         if ($tokens[$nextToken]['type'] == "T_VARIABLE") {
 
-            $error = "$currentToken \$var syntax is not supported!";
+            $error = "[PHP 5.4] $currentToken \$var syntax is not supported!";
             $phpcsFile->addError($error, $stackPtr);
         }
     }
