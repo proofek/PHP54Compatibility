@@ -1,6 +1,6 @@
 <?php
 /**
- * PHP54Compatibility_Sniffs_PHP_DeprecatedFunctionsSniff.
+ * PHP54Compatibility_Sniffs_PHP_RemovedFunctionsSniff.
  *
  * This is based on Wim Godden's PHP53Compatibility code sniffs.
  * See [blog](http://techblog.wimgodden.be/tag/codesniffer) and
@@ -17,7 +17,7 @@
  */
 
 /**
- * PHP54Compatibility_Sniffs_PHP_DeprecatedFunctionsSniff.
+ * PHP54Compatibility_Sniffs_PHP_RemovedFunctionsSniff.
  *
  * @category  PHP
  * @package   PHP54Compatibility
