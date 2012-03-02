@@ -18,7 +18,7 @@
   <date>2012-03-02</date>
   <time>10:16:00</time>
   <version>
-  <release>0.1.0</release>
+  <release>0.1.1</release>
     <api>0.1</api>
   </version>
   <stability>
@@ -37,12 +37,10 @@
             <dir name="PHP54Compatibility">
               <dir name="Sniffs">
                 <dir name="PHP">
-                  <file baseinstalldir="" name="NonStaticMagicMethodsSniff.php" role="php"/>
-                  <file baseinstalldir="" name="DeprecatedNewReferenceSniff.php" role="php"/>
+                  <file baseinstalldir="" name="RemovedExtensionsSniff.php" role="php"/>
                   <file baseinstalldir="" name="DeprecatedIniDirectivesSniff.php" role="php"/>
                   <file baseinstalldir="" name="DeprecatedFunctionsSniff.php" role="php"/>
-                  <file baseinstalldir="" name="RemovedExtensionsSniff.php" role="php"/>
-                  <file baseinstalldir="" name="ForbiddenNamesSniff.php" role="php"/> 
+                  <file baseinstalldir="" name="BreakContinueVarSyntaxSniff.php" role="php"/>
                 </dir>
               </dir>
               <file baseinstalldir="" name="ruleset.xml" role="php" />
@@ -70,6 +68,21 @@
   </dependencies>
   <phprelease />
   <changelog>
+    <release>
+      <version>
+        <release>0.1.1</release>
+        <api>0.1.1</api>
+      </version>
+      <stability>
+        <release>alpha</release>
+        <api>alpha</api>
+      </stability>
+      <date>02/03/2012</date>
+      <license>Sebastian Marek</license>
+      <notes>
+        Fixed broken 0.1.0 package containing wrong sniffs list.
+      </notes>
+    </release>
     <release>
       <version>
         <release>0.1.0</release>
