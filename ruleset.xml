@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+
+<ruleset name="PHP54Compatibility_CodeSniffer">
+ <description>Coding Standard that checks for PHP 5.4 compatibility.</description>
+</ruleset>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="pear-package" basedir=".">
+
+  <!-- Human-readable info about our component -->
+  <property file="build.properties" />
+
+  <property name="project.builddir" value="${project.basedir}/.build" override="true" />
+  <property name="project.pkgdir" value="${project.builddir}/${project.name}-${project.version}" override="true" />
+  <property name="project.distdir" value="${project.basedir}/dist" />
+
+  <property name="project.version" value="${project.majorVersion}.${project.minorVersion}.${project.patchLevel}" />
+  <property name="project.tarfilename" value="${project.name}-${project.version}.tgz" />
+  <property name="project.tarfile" value="${project.distdir}/${project.tarfilename}" />
+
+  <!-- lists of the files that make up our package -->
+  <fileset dir="${project.basedir}/src" id="source">
+    <include name="**/**"/>
+    <exclude name="**/.DS_Store"/>
+    <exclude name="**/.empty"/>
+    <exclude name="**/.svn"/>
+    <exclude name="**/.git"/>
+  </fileset>
+
+  <!-- Create the PEAR package, ready for release -->
+  <target name="pear-package">
+    <echo>Building release directory</echo>
+    <delete dir="${project.builddir}" />
+    <mkdir dir="${project.pkgdir}" />
+    <copy todir="${project.pkgdir}">
+      <fileset refid="source"/>
+    </copy>
+    <copy todir="${project.builddir}">
+      <fileset dir=".">
+        <include name="package.xml" />
+      </fileset>
+    </copy>
+
+    <echo>Creating ${project.tarfile} PEAR package</echo>
+
+    <mkdir dir="${project.distdir}" />
+    <delete file="${project.tarfile}" />
+    <tar destfile="${project.tarfile}" compression="gzip">
+      <fileset dir="${project.builddir}">
+        <include name="**/**" />
+      </fileset>
+    </tar>
+    <echo>Your PEAR package is in ${project.tarfile}</echo>
+  </target>
+</project>
