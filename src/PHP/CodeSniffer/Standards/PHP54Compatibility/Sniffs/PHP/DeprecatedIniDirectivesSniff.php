@@ -2,16 +2,18 @@
 /**
  * PHP54Compatibility_Sniffs_PHP_DeprecatedIniDirectivesSniff.
  *
- * This is based on Wim Godden's PHP53Compatibility code sniffs. 
- * See [blog](http://techblog.wimgodden.be/tag/codesniffer) and 
+ * This is based on Wim Godden's PHP53Compatibility code sniffs.
+ * See [blog](http://techblog.wimgodden.be/tag/codesniffer) and
  * [github](https://github.com/wimg/PHP53Compat_CodeSniffer).
- * 
+ *
  * PHP version 5.4
  *
  * @category  PHP
  * @package   PHP54Compatibility
  * @author    Sebastian Marek <proofek@gmail.com>
  * @copyright 2012 Sebastian Marek
+ * @license   http://www.opensource.org/licenses/bsd-license.php BSD License
+ * @link      https://github.com/proofek/PHP54Compatibility
  */
 
 /**
@@ -23,6 +25,8 @@
  * @package   PHP54Compatibility
  * @author    Sebastian Marek <proofek@gmail.com>
  * @copyright 2012 Sebastian Marek
+ * @license   http://www.opensource.org/licenses/bsd-license.php BSD License
+ * @link      https://github.com/proofek/PHP54Compatibility
  */
 class PHP54Compatibility_Sniffs_PHP_DeprecatedIniDirectivesSniff implements PHP_CodeSniffer_Sniff
 {
@@ -86,7 +90,7 @@ class PHP54Compatibility_Sniffs_PHP_DeprecatedIniDirectivesSniff implements PHP_
         if (in_array(str_replace("'", "", $tokens[$iniToken]['content']), $this->deprecatedIniDirectives) === false) {
             return;
         }
-        $error = "INI directive " . $tokens[$iniToken]['content'] . " is deprecated.";
+        $error = "[PHP 5.4] INI directive " . $tokens[$iniToken]['content'] . " is deprecated.";
 
         $phpcsFile->addWarning($error, $stackPtr);
     }

@@ -2,16 +2,18 @@
 /**
  * PHP54Compatibility_Sniffs_PHP_RemovedExtensionsSniff.
  *
- * This is based on Wim Godden's PHP53Compatibility code sniffs. 
- * See [blog](http://techblog.wimgodden.be/tag/codesniffer) and 
+ * This is based on Wim Godden's PHP53Compatibility code sniffs.
+ * See [blog](http://techblog.wimgodden.be/tag/codesniffer) and
  * [github](https://github.com/wimg/PHP53Compat_CodeSniffer).
- * 
+ *
  * PHP version 5.4
  *
  * @category  PHP
  * @package   PHP54Compatibility
  * @author    Sebastian Marek <proofek@gmail.com>
  * @copyright 2012 Sebastian Marek
+ * @license   http://www.opensource.org/licenses/bsd-license.php BSD License
+ * @link      https://github.com/proofek/PHP54Compatibility
  */
 
 /**
@@ -23,6 +25,8 @@
  * @package   PHP54Compatibility
  * @author    Sebastian Marek <proofek@gmail.com>
  * @copyright 2012 Sebastian Marek
+ * @license   http://www.opensource.org/licenses/bsd-license.php BSD License
+ * @link      https://github.com/proofek/PHP54Compatibility
  */
 class PHP54Compatibility_Sniffs_PHP_RemovedExtensionsSniff implements PHP_CodeSniffer_Sniff
 {
@@ -93,9 +97,10 @@ class PHP54Compatibility_Sniffs_PHP_RemovedExtensionsSniff implements PHP_CodeSn
         foreach ($this->removedExtensions as $extension => $alternative) {
             if (strpos($tokens[$stackPtr]['content'], $extension) === 0) {
                 if (!is_null($alternative)) {
-                    $error = "Extension '" . $extension . "' is not available in PHP 5.4 - use the '" . $alternative . "' extension instead";
+                    $error = "[PHP 5.4] Extension '" . $extension . "' is not available in PHP 5.4 - use the '"
+                    . $alternative . "' extension instead";
                 } else {
-                    $error = "Extension '" . $extension . "' is not available in PHP 5.4 anymore";
+                    $error = "[PHP 5.4] Extension '" . $extension . "' is not available in PHP 5.4 anymore";
                 }
                 $phpcsFile->addError($error, $stackPtr);
             }
