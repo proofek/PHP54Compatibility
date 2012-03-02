@@ -8,6 +8,7 @@ This is based on Wim Godden's PHP53Compatibility code sniffs. See [blog](http://
 Installation
 ------------
 
+* Discover PEAR channel with `pear channel-discover proofek.github.com/pear`
 * Install PHP54Compatibility with `pear install proofek/PHP54Compatibility` (requires PHP_CodeSniffer 1.3+)
 * Use the coding standard with `phpcs --standard=PHP54Compatibility`.
 
