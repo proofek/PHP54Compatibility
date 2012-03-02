@@ -43,7 +43,23 @@ class PHP54Compatibility_Sniffs_PHP_DeprecatedIniDirectivesSniff implements PHP_
         'highlight.bg',
         'register_globals',
         'register_long_arrays',
-        'allow_call_time_pass_reference'
+        'allow_call_time_pass_reference',
+    );
+
+    /**
+     * A list of removed INI directives
+     *
+     * @var array(string)
+     */
+    protected $removedIniDirectives = array(
+        'define_syslog_variables',
+        'register_globals',
+        'register_long_arrays',
+        'safe_mode',
+        'safe_mode_exec_dir',
+        'magic_quotes_gpc',
+        'magic_quotes_runtime',
+        'magic_quotes_sybase',
     );
 
     /**
@@ -87,11 +103,13 @@ class PHP54Compatibility_Sniffs_PHP_DeprecatedIniDirectivesSniff implements PHP_
             return;
         }
         $iniToken = $phpcsFile->findNext(T_CONSTANT_ENCAPSED_STRING, $stackPtr, null);
-        if (in_array(str_replace("'", "", $tokens[$iniToken]['content']), $this->deprecatedIniDirectives) === false) {
-            return;
+        $iniDirective = str_replace("'", "", $tokens[$iniToken]['content']);
+        if (in_array($iniDirective, $this->deprecatedIniDirectives) === true) {
+            $error = "[PHP 5.4] INI directive " . $tokens[$iniToken]['content'] . " is deprecated.";
+            $phpcsFile->addWarning($error, $stackPtr);
+        } else if (in_array($iniDirective, $this->removedIniDirectives) === true) {
+            $error = "[PHP 5.4] INI directive " . $tokens[$iniToken]['content'] . " is removed.";
+            $phpcsFile->addError($error, $stackPtr);
         }
-        $error = "[PHP 5.4] INI directive " . $tokens[$iniToken]['content'] . " is deprecated.";
-
-        $phpcsFile->addWarning($error, $stackPtr);
     }
 }
