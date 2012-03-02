@@ -1,16 +1,19 @@
 <?php
 /**
- * Generic_Sniffs_PHP_ForbiddenFunctionsSniff.
+ * PHP54Compatibility_Sniffs_PHP_RemovedFunctionParametersSniff.
  *
- * PHP version 5
+ * This is based on Wim Godden's PHP53Compatibility code sniffs.
+ * See [blog](http://techblog.wimgodden.be/tag/codesniffer) and
+ * [github](https://github.com/wimg/PHP53Compat_CodeSniffer).
+ *
+ * PHP version 5.4
  *
  * @category  PHP
- * @package   PHP_CodeSniffer
- * @author    Greg Sherwood <gsherwood@squiz.net>
- * @author    Marc McIntyre <mmcintyre@squiz.net>
- * @copyright 2006-2011 Squiz Pty Ltd (ABN 77 084 670 600)
- * @license   http://matrix.squiz.net/developer/tools/php_cs/licence BSD Licence
- * @link      http://pear.php.net/package/PHP_CodeSniffer
+ * @package   PHP54Compatibility
+ * @author    Nat McHugh nat@fishtrap.co.uk
+ * @copyright 2012 Nathaniel McHugh
+ * @license   http://www.opensource.org/licenses/bsd-license.php BSD License
+ * @link      https://github.com/proofek/PHP54Compatibility
  */
 
 
@@ -18,7 +21,7 @@ class PHP54Compatibility_Sniffs_PHP_RemovedFunctionParametersSniff implements PH
 {
 
     /**
-     * A list of forbidden functions with an assocuiated regular expression of parameters not allowed.
+     * A list of removed functions with an assocuiated regular expression of parameters not allowed.
      *
      *
      * @var array(string => string)
@@ -30,7 +33,7 @@ class PHP54Compatibility_Sniffs_PHP_RemovedFunctionParametersSniff implements PH
                                     );
 
     /**
-     * A cache of forbidden function names, for faster lookups.
+     * A cache of removed function names, for faster lookups.
      *
      * @var array(string)
      */
