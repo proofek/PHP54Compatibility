@@ -26,10 +26,10 @@
  * @license   http://www.opensource.org/licenses/bsd-license.php BSD License
  * @link      https://github.com/proofek/PHP54Compatibility
  */
-class PHP54Compatibility_Sniffs_PHP_DeprecatedFunctionsSniff extends Generic_Sniffs_PHP_ForbiddenFunctionsSniff
+class PHP54Compatibility_Sniffs_PHP_RemovedFunctionsSniff extends Generic_Sniffs_PHP_ForbiddenFunctionsSniff
 {
     /**
-     * A list of deprecated functions with their alternatives.
+     * A list of forbidden functions with their alternatives.
      *
      * The value is NULL if no alternative exists. IE, the
      * function should just not be used.
@@ -37,10 +37,18 @@ class PHP54Compatibility_Sniffs_PHP_DeprecatedFunctionsSniff extends Generic_Sni
      * @var array(string => string|null)
      */
     protected $forbiddenFunctions = array(
-        'get_magic_quotes_gpc' => null,
-        'get_magic_quotes_runtime' => null,
-        'set_magic_quotes_runtime' => null,
+        'define_syslog_vairables' => null,
         'import_request_variables' => null,
+        'session_is_registered' => null,
+        'session_register' => null,
+        'session_unregister' => null,
+        'mysqli_bind_param' => null,
+        'mysqli_bind_result' => null,
+        'mysqli_client_encoding' => null,
+        'mysqli_fetch' => null,
+        'mysqli_param_count' => null,
+        'mysqli_get_metadata' => null,
+        'mysqli_send_long_data' => null,
     );
 
     /**
@@ -48,7 +56,7 @@ class PHP54Compatibility_Sniffs_PHP_DeprecatedFunctionsSniff extends Generic_Sni
      *
      * @var bool
      */
-    public $error = false;
+    public $error = true;
 
     /**
      * Generates the error or wanrning for this sniff.
@@ -65,8 +73,8 @@ class PHP54Compatibility_Sniffs_PHP_DeprecatedFunctionsSniff extends Generic_Sni
     {
         $data  = array($function);
         $error = 'The use of function %s() is ';
-        $type   = 'Deprecated';
-        $error .= 'deprecated';
+        $type   = 'Removed';
+        $error .= 'removed';
 
         if ($pattern === null) {
             $pattern = $function;
