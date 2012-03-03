@@ -37,7 +37,7 @@ class PHP54Compatibility_Sniffs_PHP_DeprecatedIniDirectivesSniff implements PHP_
      */
     protected $deprecatedIniDirectives = array(
         'y2k_compliance',
-        'session.bug_compat42',
+        'session.bug_compat_42',
         'session.bug_compat_warn',
         'define_syslog_variables',
         'highlight.bg',
