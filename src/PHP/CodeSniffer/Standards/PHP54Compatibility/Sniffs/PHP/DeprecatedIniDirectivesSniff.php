@@ -60,6 +60,7 @@ class PHP54Compatibility_Sniffs_PHP_DeprecatedIniDirectivesSniff implements PHP_
         'magic_quotes_gpc',
         'magic_quotes_runtime',
         'magic_quotes_sybase',
+        'zend.ze1_compatibility_mode',
     );
 
     /**
