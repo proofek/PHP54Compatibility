@@ -2,35 +2,43 @@
 /**
  * PHP54Compatibility_Sniffs_PHP_RemovedFunctionParametersSniff.
  *
- * This is based on Wim Godden's PHP53Compatibility code sniffs.
- * See [blog](http://techblog.wimgodden.be/tag/codesniffer) and
- * [github](https://github.com/wimg/PHP53Compat_CodeSniffer).
+ * This is based on original PHP_CodeSniffer Generic_Sniffs_PHP_ForbiddenFunctionsSniff
+ * written by Greg Sherwood <gsherwood@squiz.net> and Marc McIntyre <mmcintyre@squiz.net>
  *
  * PHP version 5.4
  *
  * @category  PHP
  * @package   PHP54Compatibility
- * @author    Nat McHugh nat@fishtrap.co.uk
- * @copyright 2012 Nathaniel McHugh
- * @license   http://www.opensource.org/licenses/bsd-license.php BSD License
- * @link      https://github.com/proofek/PHP54Compatibility
+ * @author    Greg Sherwood <gsherwood@squiz.net>
+ * @author    Marc McIntyre <mmcintyre@squiz.net>
+ * @author    Nat McHugh <nat@fishtrap.co.uk>
+ * @copyright 2006-2011 Squiz Pty Ltd (ABN 77 084 670 600)
+ * @license   http://matrix.squiz.net/developer/tools/php_cs/licence BSD Licence
+ * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
 
-
+ /**
+  * PHP54Compatibility_Sniffs_PHP_RemovedFunctionParametersSniff.
+  *
+  * @category  PHP
+  * @package   PHP54Compatibility
+  * @author    Nat McHugh nat@fishtrap.co.uk
+  * @copyright 2012 Nathaniel McHugh
+  * @license   http://www.opensource.org/licenses/bsd-license.php BSD License
+  * @link      https://github.com/proofek/PHP54Compatibility
+  */
 class PHP54Compatibility_Sniffs_PHP_RemovedFunctionParametersSniff implements PHP_CodeSniffer_Sniff
 {
-
     /**
-     * A list of removed functions with an assocuiated regular expression of parameters not allowed.
-     *
+     * A list of removed functions with an associated regular expression of parameters not allowed.
      *
      * @var array(string => string)
      */
     protected $forbiddenFunctionsParameters = array(
-                                     'putenv'    => '/^TZ=/',
-                                     'hash_init' => '/salsa([1-2])0/',
-                                     'hash_file' => '/salsa[1-2]0/',
-                                    );
+        'putenv'    => '/^TZ=/',
+        'hash_init' => '/salsa([1-2])0/',
+        'hash_file' => '/salsa[1-2]0/',
+    );
 
     /**
      * A cache of removed function names, for faster lookups.
@@ -39,14 +47,12 @@ class PHP54Compatibility_Sniffs_PHP_RemovedFunctionParametersSniff implements PH
      */
     protected $forbiddenFunctionNames = array();
 
-
     /**
      * If true, an error will be thrown; otherwise a warning.
      *
      * @var bool
      */
     public $error = true;
-
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -57,9 +63,7 @@ class PHP54Compatibility_Sniffs_PHP_RemovedFunctionParametersSniff implements PH
     {
         $this->forbiddenFunctionNames = array_keys($this->forbiddenFunctionsParameters);
         return array(T_STRING);
-
-    }//end register()
-
+    }
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -67,7 +71,6 @@ class PHP54Compatibility_Sniffs_PHP_RemovedFunctionParametersSniff implements PH
      * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
      * @param int                  $stackPtr  The position of the current token in
      *                                        the stack passed in $tokens.
-     *
      * @return void
      */
     public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
@@ -75,11 +78,11 @@ class PHP54Compatibility_Sniffs_PHP_RemovedFunctionParametersSniff implements PH
         $tokens = $phpcsFile->getTokens();
 
         $ignore = array(
-                   T_DOUBLE_COLON,
-                   T_OBJECT_OPERATOR,
-                   T_FUNCTION,
-                   T_CONST,
-                  );
+            T_DOUBLE_COLON,
+            T_OBJECT_OPERATOR,
+            T_FUNCTION,
+            T_CONST,
+        );
 
         $prevToken = $phpcsFile->findPrevious(T_WHITESPACE, ($stackPtr - 1), null, true);
         if (in_array($tokens[$prevToken]['code'], $ignore) === true) {
@@ -107,8 +110,7 @@ class PHP54Compatibility_Sniffs_PHP_RemovedFunctionParametersSniff implements PH
                 $this->addError($phpcsFile, $stackPtr, $function, $associatedRegEx);
             }
         }
-    }//end process()
-
+    }
 
     /**
      * Generates the error or wanrning for this sniff.
@@ -136,10 +138,5 @@ class PHP54Compatibility_Sniffs_PHP_RemovedFunctionParametersSniff implements PH
         } else {
             $phpcsFile->addWarning($error, $stackPtr, $type, $data);
         }
-
-    }//end addError()
-
-
-}//end class
-
-?>
+    }
+}
