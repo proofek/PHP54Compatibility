@@ -65,5 +65,5 @@ Build package
 -------------
 
 * Clone with `git clone git://github.com/proofek/PHP54Compatibility.git`
-* Create the package with `phing pear package`
+* Create the package with `phing pear-package`
 * Package will be created in dist subdirectory

@@ -15,15 +15,15 @@
     <email>smarek@plus.net</email>
     <active>yes</active>
   </lead>
-  <date>2012-03-02</date>
-  <time>10:16:00</time>
+  <date>2012-03-05</date>
+  <time>23:20:00</time>
   <version>
-  <release>0.1.1</release>
-    <api>0.1</api>
+  <release>0.2.0</release>
+    <api>0.2</api>
   </version>
   <stability>
-    <release>alpha</release>
-    <api>alpha</api>
+    <release>stable</release>
+    <api>stable</api>
   </stability>
   <license>Sebastian Marek</license>
   <notes>
@@ -38,9 +38,12 @@
               <dir name="Sniffs">
                 <dir name="PHP">
                   <file baseinstalldir="" name="RemovedExtensionsSniff.php" role="php"/>
-                  <file baseinstalldir="" name="DeprecatedIniDirectivesSniff.php" role="php"/>
-                  <file baseinstalldir="" name="DeprecatedFunctionsSniff.php" role="php"/>
+                  <file baseinstalldir="" name="ForbiddenParameterNamesSniff.php" role="php"/>
                   <file baseinstalldir="" name="BreakContinueVarSyntaxSniff.php" role="php"/>
+                  <file baseinstalldir="" name="DeprecatedIniDirectivesSniff.php" role="php"/>
+                  <file baseinstalldir="" name="RemovedFunctionParametersSniff.php" role="php"/>
+                  <file baseinstalldir="" name="RemovedFunctionsSniff.php" role="php"/>
+                  <file baseinstalldir="" name="DeprecatedFunctionsSniff.php" role="php"/>
                 </dir>
               </dir>
               <file baseinstalldir="" name="ruleset.xml" role="php" />
@@ -68,6 +71,23 @@
   </dependencies>
   <phprelease />
   <changelog>
+    <release>
+      <version>
+        <release>0.2.0</release>
+        <api>0.2.0</api>
+      </version>
+      <stability>
+        <release>stable</release>
+        <api>stable</api>
+      </stability>
+      <date>05/03/2012</date>
+      <license>Sebastian Marek</license>
+      <notes>
+        Added new sniffs: ForbiddenParameterNamesSniff, RemovedFunctionParametersSniff, RemovedFunctionsSniff. 
+        Updated existing sniffs: DeprecatedFunctionsSniff, DeprecatedIniDirectivesSniff.
+        Updated documentation.
+      </notes>
+    </release>
     <release>
       <version>
         <release>0.1.1</release>
