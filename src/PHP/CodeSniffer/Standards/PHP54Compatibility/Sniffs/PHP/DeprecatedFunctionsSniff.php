@@ -40,7 +40,6 @@ class PHP54Compatibility_Sniffs_PHP_DeprecatedFunctionsSniff extends Generic_Sni
         'get_magic_quotes_gpc' => null,
         'get_magic_quotes_runtime' => null,
         'set_magic_quotes_runtime' => null,
-        'import_request_variables' => null,
     );
 
     /**
