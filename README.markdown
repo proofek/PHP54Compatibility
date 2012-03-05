@@ -17,21 +17,49 @@ Sniffs
 
 * Prohibits the use of break/continue $var syntax (PHP54Compatibility_Sniffs_PHP_BreakContinueVarSyntaxSniff)
 * Checks for usage of deprecated functions (PHP54Compatibility_Sniffs_PHP_DeprecatedFunctionsSniff)
+ * get_magic_quotes_gpc
+ * get_magic_quotes_runtime
+ * set_magic_quotes_runtime
+* Checks for usage of removed functions (PHP54Compatibility_Sniffs_PHP_RemovedFunctionsSniff)
+ * define_syslog_variables
  * import_request_variables
  * session_is_registered
  * session_register
  * session_unregister
-* Checks for deprecated INI directives
+ * mysqli_bind_param
+ * mysqli_bind_result
+ * mysqli_client_encoding
+ * mysqli_fetch
+ * mysqli_param_count
+ * mysqli_get_metadata
+ * mysqli_send_long_data
+* Checks for deprecated INI directives (PHP54Compatibility_Sniffs_PHP_DeprecatedIniDirectivesSniff)
  * y2k_compliance
- * session.bug_compat42
+ * session.bug_compat_42
  * session.bug_compat_warn
  * define_syslog_variables
  * highlight.bg
  * register_globals
  * register_long_arrays
  * allow_call_time_pass_reference
-* Discourages the use of removed extensions. Suggests alternative extensions if available
+* Discourages the use of removed extensions. Suggests alternative extensions if available (PHP54Compatibility_Sniffs_PHP_RemovedExtensionsSniff)
  * sqlite
+* Usage of particular parameter names is now forbidden (PHP54Compatibility_Sniffs_PHP_ForbiddenParameterNamesSniff)
+ * $GLOBALS
+ * $_SERVER
+ * $_GET
+ * $_SET
+ * $_FILES
+ * $_COOKIE
+ * $_SESSION
+ * $_REQUEST
+ * $_ENV
+* Usage of functions with particular parameters is now forbidden (PHP54Compatibility_Sniffs_PHP_RemovedFunctionParametersSniff)
+ * putenv("TZ=(.*)")
+ * hash_init('salsa10')
+ * hash_init('salsa20')
+ * hash_file('salsa10')
+ * hash_file('salsa20')
 
 Build package
 -------------
