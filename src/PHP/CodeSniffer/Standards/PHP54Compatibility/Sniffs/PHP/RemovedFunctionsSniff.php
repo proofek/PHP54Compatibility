@@ -37,7 +37,7 @@ class PHP54Compatibility_Sniffs_PHP_RemovedFunctionsSniff extends Generic_Sniffs
      * @var array(string => string|null)
      */
     protected $forbiddenFunctions = array(
-        'define_syslog_vairables' => null,
+        'define_syslog_variables' => null,
         'import_request_variables' => null,
         'session_is_registered' => null,
         'session_register' => null,
