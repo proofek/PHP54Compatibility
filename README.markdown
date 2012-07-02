@@ -12,7 +12,7 @@ Installation
 * Install PHP54Compatibility with `pear install proofek/PHP54Compatibility` (requires PHP_CodeSniffer 1.3+)
 * Use the coding standard with `phpcs --standard=PHP54Compatibility`.
 
-Sniffs 
+Sniffs
 ------
 
 * Prohibits the use of break/continue $var syntax (PHP54Compatibility_Sniffs_PHP_BreakContinueVarSyntaxSniff)
@@ -60,6 +60,7 @@ Sniffs
  * hash_init('salsa20')
  * hash_file('salsa10')
  * hash_file('salsa20')
+* Usage of long arrays is now forbidden (PHP54Compatibility_Sniffs_PHP_DeprecatedLongArraysSniff)
 
 Build package
 -------------
